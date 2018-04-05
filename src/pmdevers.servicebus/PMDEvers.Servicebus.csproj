@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>A Command Query Eventbus</Description>
+    <PackageProjectUrl>https://github.com/pmdevers/Servicebus</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pmdevers/Servicebus</RepositoryUrl>
+    <PackageTags>Servicebus eventsourcing</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
