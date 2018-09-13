@@ -65,10 +65,15 @@ namespace PMDEvers.Servicebus
 
 		public ServiceBusBuilder AddPreProcessor(Type preProcessorType)
 		{
-			if (!typeof(ICommandPreProcessor<>).IsAssignableFrom(preProcessorType))
+		    var interfaceType = typeof(ICommandPreProcessor<>);
+
+            if(preProcessorType.GenericTypeArguments.Length > 0)
+		        interfaceType = typeof(ICommandPreProcessor<>).MakeGenericType(preProcessorType.GenericTypeArguments);
+
+			if (preProcessorType.GenericTypeArguments.Length > 0 && !interfaceType.IsAssignableFrom(preProcessorType))
 				throw new InvalidOperationException($"Type {preProcessorType.Name} is not a valid PreProcesor");
 
-			AddScoped(preProcessorType, typeof(ICommandPreProcessor<>));
+			AddScoped(preProcessorType, interfaceType);
 			return this;
 		}
 
