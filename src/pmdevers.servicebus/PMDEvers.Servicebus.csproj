@@ -8,6 +8,9 @@
     <PackageProjectUrl>https://github.com/pmdevers/Servicebus</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pmdevers/Servicebus</RepositoryUrl>
     <PackageTags>Servicebus eventsourcing</PackageTags>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
