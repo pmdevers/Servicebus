@@ -7,11 +7,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-[assembly:InternalsVisibleTo("PMDEvers.Servicebus.test")]
+[assembly:InternalsVisibleTo("PMDEvers.Servicebus.Tests")]
 
 namespace PMDEvers.Servicebus.Internal
 {
-	internal abstract class CommandHandlerBase
+    internal abstract class CommandHandlerBase
 	{
 		protected static object GetHandler(Type commandType, SingleInstanceFactory singleInstanceFactory,
 			ref Collection<Exception> resolveExceptions)

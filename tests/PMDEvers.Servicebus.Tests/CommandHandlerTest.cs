@@ -28,7 +28,7 @@ namespace PMDEvers.Servicebus.Test
 		    assertion.Verify(typeof(CommandHandlerImpl<>).GetConstructors());
 		}
 
-	    public void CommandHandler_HandleAsync_Calls_SingleFactory()
+        public void CommandHandler_HandleAsync_Calls_SingleFactory()
 	    {
 		    var fixture = new Fixture();
 		    fixture.Customize(new AutoMoqCustomization());
