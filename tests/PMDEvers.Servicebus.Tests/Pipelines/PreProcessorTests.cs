@@ -56,6 +56,7 @@ namespace PMDEvers.Servicebus.Test
 
             services.AddServiceBus()
                     .AddCommandHandler<TestCommand, TestCommandHandler>()
+                    .AddCommandHandler<TestCommand2, TestCommandHandler>()
                     .AddPreProcessor(typeof(TestPreProcessor<>));
 
             var container = services.BuildServiceProvider();
@@ -65,6 +66,10 @@ namespace PMDEvers.Servicebus.Test
             serviceBus.SendAsync(new TestCommand(), CancellationToken.None);
 
             Assert.Equal(1, TestPreProcessor<TestCommand>.Hitcount);
+
+            serviceBus.SendAsync(new TestCommand2(), CancellationToken.None);
+
+            Assert.Equal(2, TestPreProcessor<TestCommand>.Hitcount);
         }
 
         [Fact]
@@ -78,8 +83,10 @@ namespace PMDEvers.Servicebus.Test
             var container = services.BuildServiceProvider();
 
             var processor = container.GetService<ICommandPreProcessor<TestCommand>>();
+            var processor1 = container.GetService<ICommandPreProcessor<TestCommand2>>();
 
             Assert.NotNull(processor);
+            Assert.NotNull(processor1);
 
 
         }
