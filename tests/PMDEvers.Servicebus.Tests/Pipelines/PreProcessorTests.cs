@@ -66,10 +66,6 @@ namespace PMDEvers.Servicebus.Test
             serviceBus.SendAsync(new TestCommand(), CancellationToken.None);
 
             Assert.Equal(1, TestPreProcessor<TestCommand>.Hitcount);
-
-            serviceBus.SendAsync(new TestCommand2(), CancellationToken.None);
-
-            Assert.Equal(2, TestPreProcessor<TestCommand>.Hitcount);
         }
 
         [Fact]
