@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using PMDEvers.Servicebus.Interfaces;
+
 namespace PMDEvers.Servicebus
 {
-    public class PagedResult<T> : PagedResultBase
+    public class PagedResult<T> : PagedResultBase, IPagedResult<T>
     {
         public IEnumerable<T> Items { get; }
 
         public bool IsEmpty => Items == null || !Items.Any();
         public bool IsNotEmpty => !IsEmpty;
+
+        public IPagedResult<U> Map<U>(Func<T, U> map)
+        {
+            return PagedResult<U>.From(this, Items.Select(map));
+        }
 
         protected PagedResult()
         {
@@ -36,7 +43,6 @@ namespace PMDEvers.Servicebus
 
         public static PagedResult<T> Empty => new PagedResult<T>();
 
-        public PagedResult<U> Map<U>(Func<T, U> map)
-            => PagedResult<U>.From(this, Items.Select(map));
+        
     }
 }
