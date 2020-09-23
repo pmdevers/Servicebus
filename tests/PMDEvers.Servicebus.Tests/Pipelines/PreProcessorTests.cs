@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using Moq;
-
 using pmdevers.servicebus.test;
 
 using PMDEvers.Servicebus.Pipeline;
