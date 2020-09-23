@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\pmdevers.servicebus\PMDEvers.Servicebus.csproj" />
+    <ProjectReference Include="..\..\src\PMDEvers.Servicebus\PMDEvers.Servicebus.csproj" />
   </ItemGroup>
 
   <ItemGroup>
