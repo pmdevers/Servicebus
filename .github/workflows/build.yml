@@ -57,6 +57,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.301
+      - name: Build
+        run: dotnet build -c Release
       - name: Create Release NuGet package
         run: |
           arrTag=(${GITHUB_REF//\// })
